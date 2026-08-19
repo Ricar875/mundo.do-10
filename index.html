@@ -1,1 +1,537 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo do 10 ® - Tudo que você ama!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #fce4ec;
+        }
+
+        .header {
+            background: #4a1444;
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-bottom: 3px solid #f8bbd0;
+        }
+
+        .header .logo-img {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #f8bbd0;
+        }
+
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-texto {
+            font-size: 28px;
+            font-weight: 900;
+            color: #f8bbd0;
+        }
+
+        .logo-texto span {
+            color: #fff;
+        }
+
+        .logo-texto small {
+            font-size: 13px;
+            font-weight: normal;
+            color: #f8bbd0;
+            display: block;
+            letter-spacing: 1px;
+        }
+
+        .razao-social {
+            font-size: 13px;
+            color: #f8bbd0;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        .nav-abas {
+            background: #fff;
+            padding: 10px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            border-bottom: 2px solid #f8bbd0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .aba-btn {
+            background: #fce4ec;
+            border: none;
+            padding: 9px 16px;
+            border-radius: 30px;
+            font-weight: bold;
+            color: #4a1444;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .aba-btn:hover {
+            background: #f8bbd0;
+            transform: scale(1.05);
+        }
+
+        .aba-btn.ativa {
+            background: #d81b60;
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(216, 27, 96, 0.3);
+        }
+
+        .banner {
+            background: linear-gradient(135deg, #f8bbd0, #f48fb1);
+            padding: 35px 20px;
+            text-align: center;
+            color: #4a1444;
+        }
+
+        .banner h1 {
+            font-size: 2.4rem;
+        }
+
+        .banner h2 {
+            font-size: 2.6rem;
+            background: #4a1444;
+            color: #f8bbd0;
+            display: inline-block;
+            padding: 8px 35px;
+            border-radius: 50px;
+            margin-top: 10px;
+        }
+
+        .banner .destaque {
+            background: #4a1444;
+            color: #f8bbd0;
+            padding: 8px 25px;
+            border-radius: 30px;
+            display: inline-block;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .produtos-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        .categoria-titulo {
+            color: #4a1444;
+            font-size: 1.4rem;
+            margin: 25px 0 15px;
+            padding-left: 10px;
+            border-left: 5px solid #d81b60;
+        }
+
+        .grade-produtos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+            border: 1px solid #f8bbd0;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(216, 27, 96, 0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+            background: #f8bbd0;
+        }
+
+        .card h3 {
+            margin: 10px 0 2px;
+            font-size: 0.95rem;
+            color: #4a1444;
+        }
+
+        .card .marca {
+            font-size: 0.78rem;
+            color: #999;
+            margin-bottom: 5px;
+        }
+
+        .card .preco {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #d81b60;
+            background: #fce4ec;
+            padding: 3px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 4px 0;
+        }
+
+        .btn-whats {
+            background: #25D366;
+            color: #fff;
+            border: none;
+            padding: 9px 12px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 6px;
+            transition: 0.3s;
+            font-size: 0.85rem;
+        }
+
+        .btn-whats:hover {
+            background: #128C7E;
+        }
+
+        .fidelidade {
+            background: #4a1444;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .fidelidade h2 {
+            color: #f8bbd0;
+        }
+
+        .fidelidade .pontos {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .fidelidade .item {
+            background: #6a1b5e;
+            padding: 15px 25px;
+            border-radius: 12px;
+        }
+
+        .fidelidade .aviso {
+            background: #f8bbd0;
+            color: #4a1444;
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .local {
+            text-align: center;
+            padding: 30px 20px;
+            background: #fce4ec;
+        }
+
+        .local iframe {
+            width: 100%;
+            max-width: 600px;
+            height: 200px;
+            border: 0;
+            border-radius: 12px;
+            margin-top: 10px;
+        }
+
+        footer {
+            background: #4a1444;
+            color: #f8bbd0;
+            text-align: center;
+            padding: 20px;
+            border-top: 3px solid #f8bbd0;
+        }
+
+        footer .marca {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        footer .marca small {
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+        footer .razao {
+            font-size: 14px;
+            color: #d4a0c0;
+            margin-top: 5px;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .whatsapp-float:hover {
+            background: #128C7E;
+        }
+
+        @media (max-width: 600px) {
+            .banner h1 {
+                font-size: 1.7rem;
+            }
+            .banner h2 {
+                font-size: 2rem;
+                padding: 8px 20px;
+            }
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .razao-social {
+                margin-top: 5px;
+            }
+            .aba-btn {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-title">
+            <img src="imagens/logo-mundo-do-10.jpg" alt="Mundo do 10" class="logo-img">
+            <div class="logo-texto">
+                MUNDO <span>DO</span> 10 ®
+                <small>— Tudo que você ama! —</small>
+            </div>
+        </div>
+        <div class="razao-social">
+            Mundo do 10 Comércio de Variedades Ltda
+        </div>
+    </header>
+
+    <nav class="nav-abas" id="navAbas">
+        <button class="aba-btn ativa" data-categoria="todos">🌟 Todos</button>
+        <button class="aba-btn" data-categoria="cabelo">💇 Cabelo</button>
+        <button class="aba-btn" data-categoria="corpo">🧴 Corpo &amp; Banho</button>
+        <button class="aba-btn" data-categoria="rosto">✨ Rosto</button>
+        <button class="aba-btn" data-categoria="olhos">👁️ Olhos</button>
+        <button class="aba-btn" data-categoria="blush">💖 Blush &amp; Iluminador</button>
+        <button class="aba-btn" data-categoria="labios">💋 Lábios</button>
+        <button class="aba-btn" data-categoria="pinceis">🖌️ Pincéis</button>
+        <button class="aba-btn" data-categoria="biju">💎 Biju</button>
+    </nav>
+
+    <section class="banner">
+        <h1>Venha conhecer o mundo do</h1>
+        <h2>10</h2>
+        <p><span class="destaque">Peças incríveis com preço sob consulta</span></p>
+        <p style="margin-top:10px; font-size:1.1rem;">Aqui você encontra tudo que ama! 🎁</p>
+        <p style="margin-top:5px; font-size:1rem;">📍 Otaviano Leandro de Moraes, 651 - Centro, Paulo Afonso - BA</p>
+    </section>
+
+    <section class="produtos-container" id="produtosContainer">
+        <!-- Categorias e produtos inseridos via JavaScript -->
+    </section>
+
+    <section class="fidelidade">
+        <h2>💳 Cartão de Fidelidade Digital</h2>
+        <p>Acumule pontos a cada compra e ganhe descontos!</p>
+        <div class="pontos">
+            <div class="item">⭐ 100 pts = R$ 5 de desconto</div>
+            <div class="item">🎁 200 pts = Brinde surpresa</div>
+            <div class="item">🔥 500 pts = 10% de desconto</div>
+        </div>
+        <p class="aviso">📲 Ao comprar pelo WhatsApp, informe seu CPF para acumular pontos!</p>
+    </section>
+
+    <section class="local">
+        <h2>📍 Onde ficamos?</h2>
+        <p><strong>Na Otaviano Leandro de Moraes, 651 - Centro, Paulo Afonso - BA</strong></p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3931.194017803282!2d-38.21480238520428!3d-9.401786792131188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMjQnMDYuNCJTIDM4wrAxMic1My4zIlc!5e0!3m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <footer>
+        <div class="marca">MUNDO DO 10 ® <small>— Tudo que você ama —</small></div>
+        <div class="razao">Mundo do 10 Comércio de Variedades Ltda | CNPJ: 00.000.000/0000-00</div>
+        <div style="margin-top:8px; font-size:13px; color:#d4a0c0;">
+            WhatsApp: (75) 99142-5240 | © 2026 - Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5575991425240?text=Ol%C3%A1!%20Vim%20pelo%20site%20Mundo%20do%2010%20e%20quero%20fazer%20um%20pedido!" class="whatsapp-float" target="_blank">
+        💬 Fale com a gente no WhatsApp
+    </a>
+
+    <script>
+        const produtos = [
+            // Cabelo
+            { nome: 'Kit Shampoo + Condicionador SDS Absoluto', marca: 'Soul Cosméticos', categoria: 'cabelo', img: 'imagens/kit-shampoo-condicionador-sds.jpg' },
+            { nome: 'Máscara Capilar Hidratante SDS Absoluto', marca: 'Soul Cosméticos', categoria: 'cabelo', img: 'imagens/mascara-capilar-sds.jpg' },
+            { nome: 'Escova Desembaraçadora Anti-Frizz', marca: '', categoria: 'cabelo', img: 'imagens/escova-antifrizz.jpg' },
+
+            // Corpo & Banho
+            { nome: 'Hidratante Corporal (Morango, Rosas e Lírios)', marca: 'Soul Cosméticos', categoria: 'corpo', img: 'imagens/hidratante-corporal-soul.jpg' },
+            { nome: 'Esfoliante Hidratante Kiwi', marca: 'Soul Cosméticos', categoria: 'corpo', img: 'imagens/esfoliante-kiwi.jpg' },
+            { nome: 'Sabonete Líquido Facial Carvão Ativado', marca: 'Soul DERM', categoria: 'corpo', img: 'imagens/sabonete-derm-carvao.jpg' },
+            { nome: 'Sabonete Líquido Facial Moranguinho', marca: 'Baba Soul', categoria: 'corpo', img: 'imagens/sabonete-baba-soul-morango.jpg' },
+            { nome: 'Sabonete Líquido Facial Cheirinho de Chiclete', marca: 'Baba Soul', categoria: 'corpo', img: 'imagens/sabonete-baba-soul.jpg' },
+            { nome: 'Sabonete Íntimo em Gel 10 Benefícios', marca: 'Bioinstinto', categoria: 'corpo', img: 'imagens/sabonete-intimo-bioinstinto.jpg' },
+            { nome: 'Esfoliante Rosto e Corpo (Pitaya, Pêssego, Morango)', marca: 'Bioinstinto', categoria: 'corpo', img: 'imagens/esfoliante-bioinstinto.jpg' },
+
+            // Rosto
+            { nome: 'Base Matte Perfect Skin', marca: 'SIS Rezende Makeup', categoria: 'rosto', img: 'imagens/base-matte-sis.jpg' },
+            { nome: 'Base Líquida', marca: 'Bella Bem me quero', categoria: 'rosto', img: 'imagens/base-liquida-bella.jpg' },
+            { nome: 'Corretivo Sérum Hidratante', marca: 'Miamake', categoria: 'rosto', img: 'imagens/corretivo-serum-miamake.jpg' },
+            { nome: 'Pó Facial Rosa Mosqueta', marca: 'Bella Bem me quero', categoria: 'rosto', img: 'imagens/po-facial-rosa-mosqueta.jpg' },
+            { nome: 'Pó Facial Avelã', marca: 'Bella Bem me quero', categoria: 'rosto', img: 'imagens/po-facial-avela.jpg' },
+            { nome: 'Pó Banana', marca: 'Bella Bem me quero', categoria: 'rosto', img: 'imagens/po-banana.jpg' },
+            { nome: 'Pó Translúcido Photo Pro', marca: 'Bella Bem me quero', categoria: 'rosto', img: 'imagens/po-translucido-photopro.jpg' },
+            { nome: 'Cristal Primer Pó Facial HD', marca: 'Bella Bem me quero', categoria: 'rosto', img: 'imagens/cristal-primer.jpg' },
+            { nome: 'Água Micelar', marca: 'Bella Bem me quero', categoria: 'rosto', img: 'imagens/agua-micelar.jpg' },
+            { nome: 'Bruma Iluminadora Gold', marca: 'Bella Bem me quero', categoria: 'rosto', img: 'imagens/bruma-iluminadora-gold.jpg' },
+            { nome: 'Bruma Fixadora Efeito Matte', marca: 'Bella Bem me quero', categoria: 'rosto', img: 'imagens/bruma-fixadora-matte.jpg' },
+
+            // Olhos
+            { nome: 'Máscara de Cílios Alonga e Define', marca: 'Safira', categoria: 'olhos', img: 'imagens/mascara-cilios-alonga.jpg' },
+            { nome: 'Máscara de Cílios Volume Intenso', marca: 'Safira', categoria: 'olhos', img: 'imagens/mascara-cilios-volume.jpg' },
+            { nome: 'Máscara de Cílios Postiços', marca: 'Safira', categoria: 'olhos', img: 'imagens/mascara-cilios-posticos.jpg' },
+            { nome: 'Cílios Postiços Fio a Fio D 0.07 8mm', marca: 'Nesura Eyelash', categoria: 'olhos', img: 'imagens/cilios-posticos-nesura.jpg' },
+
+            // Blush & Iluminador
+            { nome: 'Duo de Blushes Mood', marca: 'Ruby Rose', categoria: 'blush', img: 'imagens/duo-blush-mood.jpg' },
+            { nome: 'Blush Cremoso Mood', marca: 'Ruby Rose', categoria: 'blush', img: 'imagens/blush-cremoso-mood.jpg' },
+            { nome: 'Blush Compacto', marca: 'Ruby Rose', categoria: 'blush', img: 'imagens/blush-compacto-rubyrose.jpg' },
+            { nome: 'Iluminador Baked Glass', marca: 'Ruby Rose', categoria: 'blush', img: 'imagens/iluminador-glass-rubyrose.jpg' },
+            { nome: 'Paleta de Iluminador Feels Mood', marca: 'Ruby Rose', categoria: 'blush', img: 'imagens/paleta-iluminador-feelsmood.jpg' },
+            { nome: 'Iluminador Baby (Stick)', marca: 'Vivai', categoria: 'blush', img: 'imagens/iluminador-baby-vivai.jpg' },
+
+            // Lábios
+            { nome: 'Lip Gloss Chaveiro', marca: 'Love Rain', categoria: 'labios', img: 'imagens/lipgloss-loverain.jpg' },
+            { nome: 'Gloss Labial Glow Up (Chaveiro)', marca: 'Safira', categoria: 'labios', img: 'imagens/gloss-glowup-safira.jpg' },
+            { nome: 'Batom Fosco', marca: "Shine's Cosméticos", categoria: 'labios', img: 'imagens/batom-fosco-shines.jpg' },
+
+            // Pincéis
+            { nome: 'Kit Pincéis de Maquiagem (5 peças)', marca: 'Pabibrow', categoria: 'pinceis', img: 'imagens/kit-pinceis-pabibrow.jpg' },
+            { nome: 'Pincel Kabuki Duo', marca: '', categoria: 'pinceis', img: 'imagens/pincel-kabuki.jpg' },
+
+            // Biju
+            { nome: 'Brincos Coração', marca: '', categoria: 'biju', img: 'imagens/brincos-coracao.jpg' },
+            { nome: 'Brincos Argola com Strass', marca: 'LQH', categoria: 'biju', img: 'imagens/brincos-argola-lqh.jpg' }
+        ];
+
+        const categoriasInfo = {
+            cabelo: '💇 Cabelo',
+            corpo: '🧴 Corpo & Banho',
+            rosto: '✨ Rosto',
+            olhos: '👁️ Olhos',
+            blush: '💖 Blush & Iluminador',
+            labios: '💋 Lábios',
+            pinceis: '🖌️ Pincéis',
+            biju: '💎 Biju'
+        };
+
+        function criarCard(produto) {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <img src="${produto.img}" alt="${produto.nome}">
+                <h3>${produto.nome}</h3>
+                <div class="marca">${produto.marca}</div>
+                <div class="preco">💰 Consulte preço</div>
+                <button class="btn-whats" onclick="comprar('${produto.nome.replace(/'/g, "\\'")}')">Quero saber valor</button>
+            `;
+            return card;
+        }
+
+        function renderizarProdutos(categoria) {
+            const container = document.getElementById('produtosContainer');
+            container.innerHTML = '';
+
+            if (categoria === 'todos') {
+                Object.keys(categoriasInfo).forEach(cat => {
+                    const itens = produtos.filter(p => p.categoria === cat);
+                    if (itens.length === 0) return;
+
+                    const titulo = document.createElement('h2');
+                    titulo.className = 'categoria-titulo';
+                    titulo.textContent = categoriasInfo[cat];
+                    container.appendChild(titulo);
+
+                    const grade = document.createElement('div');
+                    grade.className = 'grade-produtos';
+                    itens.forEach(p => grade.appendChild(criarCard(p)));
+                    container.appendChild(grade);
+                });
+            } else {
+                const itens = produtos.filter(p => p.categoria === categoria);
+                const grade = document.createElement('div');
+                grade.className = 'grade-produtos';
+                if (itens.length === 0) {
+                    grade.innerHTML = '<p style="text-align:center; width:100%; color:#4a1444;">Nenhum produto encontrado nesta categoria.</p>';
+                } else {
+                    itens.forEach(p => grade.appendChild(criarCard(p)));
+                }
+                container.appendChild(grade);
+            }
+        }
+
+        function comprar(nome) {
+            const numero = "5575991425240";
+            const mensagem = `Olá! Vi o produto *${nome}* no site Mundo do 10. Gostaria de saber o valor e a disponibilidade. Posso retirar na loja (Otaviano Leandro de Moraes, 651) ou preciso de frete.`;
+            const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+            window.open(url, '_blank');
+        }
+
+        document.querySelectorAll('.aba-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.aba-btn').forEach(b => b.classList.remove('ativa'));
+                this.classList.add('ativa');
+                renderizarProdutos(this.dataset.categoria);
+            });
+        });
+
+        renderizarProdutos('todos');
+    </script>
+</body>
+</html>
