@@ -1,1 +1,114 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo do 10 - Tudo que você ama!</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: #f5f1eb; }
+        .header { background: #0a2a44; color: #fff; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .logo { font-size: 28px; font-weight: 900; color: #ffcc00; }
+        .logo span { color: #fff; }
+        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: #fff; padding: 15px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 999; display: flex; align-items: center; gap: 10px; }
+        .whatsapp-float:hover { background: #128C7E; }
+        .banner { background: linear-gradient(135deg, #ffcc00, #f7971e); padding: 40px 20px; text-align: center; color: #0a2a44; }
+        .banner h1 { font-size: 3rem; }
+        .banner h2 { font-size: 2.5rem; background: #0a2a44; color: #ffcc00; display: inline-block; padding: 10px 30px; border-radius: 50px; margin-top: 10px; }
+        .banner p { font-size: 1.3rem; margin-top: 15px; }
+        .banner .destaque { background: #0a2a44; color: #ffcc00; padding: 8px 25px; border-radius: 30px; display: inline-block; font-weight: bold; }
+        .produtos { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; padding: 40px; max-width: 1200px; margin: auto; }
+        .card { background: #fff; border-radius: 16px; padding: 15px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: 0.3s; }
+        .card:hover { transform: scale(1.03); }
+        .card img { width: 100%; height: 150px; object-fit: cover; border-radius: 10px; background: #eee; }
+        .card h3 { margin: 10px 0; font-size: 1.1rem; }
+        .card .preco { font-size: 1.2rem; font-weight: bold; color: #f7971e; background: #fff3e0; padding: 5px 12px; border-radius: 20px; display: inline-block; }
+        .btn-whats { background: #25D366; color: #fff; border: none; padding: 10px 15px; border-radius: 30px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px; transition: 0.3s; }
+        .btn-whats:hover { background: #128C7E; }
+        .fidelidade { background: #0a2a44; color: #fff; padding: 40px; text-align: center; }
+        .fidelidade h2 { color: #ffcc00; }
+        .fidelidade .pontos { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin: 20px 0; }
+        .fidelidade .item { background: #1a3a5a; padding: 15px 25px; border-radius: 12px; }
+        .local { text-align: center; padding: 30px; background: #fff; }
+        .local iframe { width: 100%; max-width: 600px; height: 200px; border: 0; border-radius: 12px; margin-top: 10px; }
+        footer { background: #0a2a44; color: #aaa; text-align: center; padding: 20px; }
+        @media (max-width: 600px) { .banner h1 { font-size: 2rem; } .banner h2 { font-size: 1.8rem; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">MUNDO <span>DO</span> 10</div>
+        <div>📍 Centro de Paulo Afonso - BA</div>
+    </header>
+
+    <section class="banner">
+        <h1>Venha conhecer o mundo do</h1>
+        <h2>10</h2>
+        <p><span class="destaque">Peças incríveis com preço sob consulta</span></p>
+        <p style="margin-top:10px; font-size:1.2rem;">Aqui você encontra tudo que ama! 🎁</p>
+        <p style="margin-top:5px; font-size:1rem;">📍 Otaviano Leandro de Moraes, 651</p>
+    </section>
+
+    <section class="produtos" id="produtos">
+        <div class="card">
+            <img src="https://via.placeholder.com/200x150/ffcc00/0a2a44?text=Anel" alt="Anel">
+            <h3>Anel de Prata</h3>
+            <div class="preco">💰 Consulte preço</div>
+            <button class="btn-whats" onclick="comprar('Anel de Prata')">Quero saber valor</button>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/200x150/ffcc00/0a2a44?text=Brinco" alt="Brinco">
+            <h3>Brinco Folheado</h3>
+            <div class="preco">💰 Consulte preço</div>
+            <button class="btn-whats" onclick="comprar('Brinco Folheado')">Quero saber valor</button>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/200x150/ffcc00/0a2a44?text=Kit+10" alt="Kit 10">
+            <h3>Kit 10 Peças Sortidas</h3>
+            <div class="preco">💰 Consulte preço</div>
+            <button class="btn-whats" onclick="comprar('Kit 10 Peças Sortidas')">Quero saber valor</button>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/200x150/ffcc00/0a2a44?text=Colar" alt="Colar">
+            <h3>Colar Corrente</h3>
+            <div class="preco">💰 Consulte preço</div>
+            <button class="btn-whats" onclick="comprar('Colar Corrente')">Quero saber valor</button>
+        </div>
+    </section>
+
+    <section class="fidelidade">
+        <h2>💳 Cartão de Fidelidade Digital</h2>
+        <p>Acumule pontos a cada compra e ganhe descontos!</p>
+        <div class="pontos">
+            <div class="item">⭐ 100 pts = R$ 5 off</div>
+            <div class="item">🎁 200 pts = Brinde surpresa</div>
+            <div class="item">🔥 500 pts = 10% OFF</div>
+        </div>
+        <p style="margin-top:15px; background:#ffcc00; color:#0a2a44; padding:10px; border-radius:30px; display:inline-block;">📲 Ao comprar pelo WhatsApp, avise seu CPF para acumular pontos!</p>
+    </section>
+
+    <section class="local">
+        <h2>📍 Onde ficamos?</h2>
+        <p><strong>Na Otaviano Leandro de Moraes, 651 - Centro, Paulo Afonso - BA</strong></p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3931.194017803282!2d-38.21480238520428!3d-9.401786792131188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOTnCsDI0JzA2LjQiUyAzOMKwMTInNDcuMiJX!5e0!3m2!1spt-BR!2sbr!4v1699999999999" allowfullscreen></iframe>
+    </section>
+
+    <footer>
+        <p>Mundo do 10 © 2026 - Tudo que você ama! | WhatsApp: (75) 99999-9999</p>
+    </footer>
+
+    <a href="https://wa.me/5575999999999?text=Olá! Vim pelo site Mundo do 10 e quero fazer um pedido!" class="whatsapp-float" target="_blank">
+        💬 Fale conosco no WhatsApp
+    </a>
+
+    <script>
+        function comprar(nome) {
+            const numero = "5575999999999";
+            const mensagem = `Olá! Vi o produto *${nome}* no site Mundo do 10. Gostaria de saber o valor e a disponibilidade. Posso retirar na loja (Otaviano Leandro de Moraes, 651) ou preciso de frete.`;
+            const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
